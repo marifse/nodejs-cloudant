@@ -116,3 +116,7 @@ resource "ibm_cd_tekton_pipeline_trigger" "ci_pipeline_manual_trigger" {
     event_listener  = "manual-run"
   }
 }
+
+output "pipeline_id" {
+value = var.pipeline_id
+}
