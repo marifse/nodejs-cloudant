@@ -1,7 +1,7 @@
 variable "ibmcloud_api_key" {
   type        = string
   description = "The IAM API Key for IBM Cloud access (https://cloud.ibm.com/iam/apikeys)"
-  default = "_kq4Odahdalfkhfalkhlkhlkhlkhlkhb"
+  default = ""
 }
 
 variable "resource_group" {
@@ -89,5 +89,5 @@ variable "container_registry_namespace" {
 variable "app_repo" {
   type        = string
   description = ""
-  default     = "https://github.com/triceam/nodejs-cloudant"
+  default     = "https://github.com/marifse/nodejs-cloudant"
 }
