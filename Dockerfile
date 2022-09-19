@@ -1,11 +1,12 @@
-FROM registry.access.redhat.com/ubi8/nodejs-16-minimal:1
+FROM node:12.22.12
 
-WORKDIR /opt/app-root/src
+RUN mkdir /app
+WORKDIR /app
 
-COPY package.json /opt/app-root/src
+COPY package.json /app
 RUN npm install --only=prod
-COPY server /opt/app-root/src/server
-COPY public /opt/app-root/src/public
+COPY server /app/server
+COPY public /app/public
 
 ENV NODE_ENV production
 ENV PORT 3000
