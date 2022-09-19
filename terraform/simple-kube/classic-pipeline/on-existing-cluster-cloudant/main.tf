@@ -21,30 +21,30 @@ provider "ibm" {
   ibmcloud_api_key   = var.ibmcloud_api_key
 }
 
-resource "ibm_container_cluster" "cluster" {
-  name              = var.cluster_name
-  datacenter        = var.datacenter
-  default_pool_size = var.default_pool_size
-  machine_type      = var.machine_type
-  hardware          = var.hardware
-  kube_version      = var.kube_version
-  #public_vlan_id    = var.public_vlan_num
-  #private_vlan_id   = var.private_vlan_num
-  resource_group_id = data.ibm_resource_group.group.id
-}
+#resource "ibm_container_cluster" "cluster" {
+#  name              = var.cluster_name
+#  datacenter        = var.datacenter
+#  default_pool_size = var.default_pool_size
+#  machine_type      = var.machine_type
+#  hardware          = var.hardware
+#  kube_version      = var.kube_version
+#  #public_vlan_id    = var.public_vlan_num
+#  #private_vlan_id   = var.private_vlan_num
+#  resource_group_id = data.ibm_resource_group.group.id
+#}
 
-resource "ibm_resource_instance" "cloudant" {
-  name              = var.cloudantdb_name
-  service           = "cloudantnosqldb"
-  plan              = var.plan
-  location          = var.region
-  resource_group_id = data.ibm_resource_group.group.id
-  depends_on = [ibm_container_cluster.cluster]
-}
+#resource "ibm_resource_instance" "cloudant" {
+#  name              = var.cloudantdb_name
+#  service           = "cloudantnosqldb"
+#  plan              = var.plan
+#  location          = var.region
+#  resource_group_id = data.ibm_resource_group.group.id
+#  depends_on = [ibm_container_cluster.cluster]
+#}
 
 resource "ibm_container_bind_service" "bind_service" {
   cluster_name_id       = var.cluster_name
-  service_instance_name = ibm_resource_instance.cloudant.name
+  service_instance_name = var.cloudantdb_name
   namespace_id          = var.cluster_namespace
   resource_group_id = data.ibm_resource_group.group.id
 }
@@ -59,5 +59,5 @@ module "ibm-kubernetes-toolchain" {
   cluster_name      = var.cluster_name
   cluster_namespace = var.cluster_namespace
   container_registry_namespace = var.container_registry_namespace
-  depends_on = [ibm_container_cluster.cluster]
+  #depends_on = [ibm_container_cluster.cluster]
 }
