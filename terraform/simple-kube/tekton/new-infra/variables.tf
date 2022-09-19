@@ -68,7 +68,7 @@ variable "container_registry_namespace" {
 variable "app_repo" {
   type        = string
   description = "Repository url for the repository containing application source code."
-  default     = "https://github.com/triceam/nodejs-cloudant.git"
+  default     = "https://github.com/marifse/nodejs-cloudant.git"
 }
 
 variable "pipeline_repo" {
