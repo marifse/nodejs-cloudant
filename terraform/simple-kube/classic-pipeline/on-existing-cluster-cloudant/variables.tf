@@ -1,7 +1,7 @@
 variable "ibmcloud_api_key" {
   type        = string
   description = "The IAM API Key for IBM Cloud access (https://cloud.ibm.com/iam/apikeys)"
-  default = "_fggkhdlkhlkhlhadddnuuekndEALEKNDED"
+  default = "_kq4Odahdalfkhfalkhlkhlkhlkhlkhb"
 }
 
 variable "resource_group" {
