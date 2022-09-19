@@ -62,7 +62,7 @@ variable "cluster_namespace" {
 variable "container_registry_namespace" {
   type        = string
   description = "IBM Container Registry namespace to save image into. NOTE: If the namespace does not exist, it will be created."
-  default = "arif2-test"
+  default = "nodejs-cloudant-arif"
 }
 
 variable "app_repo" {
