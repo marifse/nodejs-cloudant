@@ -8,10 +8,6 @@ terraform {
 }
 }
 
-
-
-
-
 resource "random_string" "random" {
   length = 4
   min_lower = 4
@@ -117,4 +113,26 @@ module "pipeline-ci" {
   pipeline_repo             = module.repositories.pipeline_repo_url
   tekton_tasks_catalog_repo = module.repositories.tekton_tasks_catalog_repo_url
   kp_integration_name       = var.ibmcloud_api_key
+}
+
+resource "null_resource" "trigger_pipeline" {
+provisioner "local-exec" {
+command = <<EOT
+
+JSON_TOKEN=$(curl --location --request POST 'https://iam.cloud.ibm.com/identity/token' --header 'Content-Type: application/x-www-form-urlencoded' --header 'Accept: application/json' --data-urlencode 'grant_type=urn:ibm:params:oauth:grant-type:apikey' --data-urlencode 'apikey=${var.ibmcloud_api_key}')
+
+ACCESS_TOKEN=$(echo $JSON_TOKEN | jq -j '.access_token')
+
+curl -X POST --location --header "Authorization: Bearer $ACCESS_TOKEN" \
+--header "Accept: application/json" --header "Content-Type: application/json" \
+--data '{ "trigger_name": "manual-run", "trigger_properties": { "pipeline-debug": "false" }, "secure_trigger_properties": { "secure-property-key": "secure value" }, "trigger_header": { "source": "api" }, "trigger_body": { "message": "hello world", "enable": "true", "detail": { "name": "example" } } }' \
+"https://api.us-south.devops.cloud.ibm.com/v2/tekton_pipelines/${module.pipeline-ci.pipeline_id}/pipeline_runs"
+EOT
+}
+depends_on = [
+module.pipeline-ci,
+ibm_container_cluster.cluster,
+ibm_resource_instance.cd_instance_1,
+ibm_resource_group.cloudant
+]
 }
