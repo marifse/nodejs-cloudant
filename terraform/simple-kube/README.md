@@ -85,7 +85,7 @@ terraform init
 terraform apply
 ```
 
-Confirm with “yes”.
+• Confirm with “yes”.
 
 This terraform script will provision the IKS free Classic cluster, Cloudant database, and a Tekton toolchain, which is auto triggered on its creation and deploying the application to the created IKS Kubernetes cluster.
 
@@ -124,7 +124,7 @@ terraform init
 terraform apply
 ```
 
-Confirm with “yes”.
+• Confirm with “yes”.
 
 Once all the resources have been provisioned, you can go to the Toolchain service in IBM Cloud console and in deployed region, you would find the delivery pipeline, there would be three stages, and in third deployment stage, you would find the URL for your NodeJS application deployed over there. You can open that URL in browser and see your application running.
 
@@ -158,7 +158,7 @@ terraform init
 terraform apply
 ```
 
-Confirm with “yes”.
+• Confirm with “yes”.
 
 Once all the resources have been provisioned, you can go to the Toolchain service in IBM Cloud console and in deployed region, you would find the delivery pipeline, there would be three stages, and in third deployment stage, you would find the URL for your NodeJS application deployed over there. You can open that URL in browser and see your application running.
 
