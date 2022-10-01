@@ -111,7 +111,7 @@ Clone the repo as told in above step 3.0, and follow the below steps.
 cd nodejs-cloudant/terraform/simple-kube/classic-pipeline/new-infra/
 ```
 
-• Replace the **API key** value with your key and set the **cluster name, Cloudant database name, and the container registry namespace** and other variables as desired.
+• Replace the **API key** value with your key and set the **Kubernetes cluster name, Cloudant database name, and the container registry namespace** and other variables as desired.
 
 •	Initialize the repo with below command.
 
@@ -145,7 +145,7 @@ Clone the repo as mentioned in above step 3.0, and follow the steps below.
 cd nodejs-cloudant/terraform/simple-kube/classic-pipeline/on-existing-cluster-cloudant
 ```
 
-•	Replace the **API key** value with your key and set the **cluster name** and the **Cloudant database name** with your existing IKS cluster name and Cloudant DB name, and other variables as desired.
+•	Replace the **API key** value with your key and set the **Kubernetes cluster name** and the **Cloudant database name** with your existing IKS cluster name and Cloudant DB name, and other variables as desired.
 
 •	Initialize the repo with below terraform command.
 
