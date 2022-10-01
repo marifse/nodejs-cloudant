@@ -90,6 +90,7 @@ terraform apply
 This terraform script will provision the IKS free Classic cluster, Cloudant database, and a Tekton toolchain, which is auto triggered on its creation and deploying the application to the created IKS Kubernetes cluster.
 
 To get the URL for deployed application, go to Toolchain service in IBM Cloud console, and select the region where the toolchain has been created and go to triggered event, and there in deployment stage, you can find the application URL as IPAddress:port in last lines of the executions. Open that URL in browser and you can see the NodeJS application deployed there.
+
 •	To destroy the deployment run below terraform command.
 
 ```bash
