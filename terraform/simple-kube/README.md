@@ -97,9 +97,9 @@ To get the URL for deployed application, go to Toolchain service in IBM Cloud co
 terraform destroy
 ```
 
-### 3.1	Using a Classic Toolchain pipeline
+### 3.2	Using a Classic Toolchain pipeline
 
-To deploy NodeJS to a new Kubernetes cluster using Classic pipeline, there are two options either deploying to existing Kubernetes cluster or to a new Kubernetes cluster.
+To deploy NodeJS to a new Kubernetes cluster using Classic Toolchain pipeline, there are two options either deploying to existing Kubernetes cluster or to a new Kubernetes cluster.
 
 ### 3.2.1 To a new Kubernetes cluster
 
@@ -125,7 +125,7 @@ terraform init
 terraform apply
 ```
 
-• Confirm with “yes”.
+• Confirm with **yes**.
 
 Once all the resources have been provisioned, you can go to the Toolchain service in IBM Cloud console and in deployed region, you would find the delivery pipeline, there would be three stages, and in third deployment stage, you would find the URL for your NodeJS application deployed over there. You can open that URL in browser and see your application running.
 
@@ -139,13 +139,13 @@ terraform destroy
 
 Clone the repo as mentioned in above step 3.0, and follow the steps below. 
 
-• Go into sub-directory (with-existing-cluster) of cloned repo with below command.
+• Go into sub-directory [with-existing-cluster](https://github.com/marifse/nodejs-cloudant/tree/master/terraform/simple-kube/classic-pipeline/on-existing-cluster-cloudant) of cloned repo with below command.
 
 ```bash
 cd nodejs-cloudant/terraform/simple-kube/classic-pipeline/on-existing-cluster-cloudant
 ```
 
-•	Replace the API key value with your key and set the cluster name and the Cloudant database name with your existing IKS cluster name and Cloudant DB name, and other variables as desired.
+•	Replace the **API key** value with your key and set the **cluster name** and the **Cloudant database name** with your existing IKS cluster name and Cloudant DB name, and other variables as desired.
 
 •	Initialize the repo with below terraform command.
 
@@ -159,9 +159,9 @@ terraform init
 terraform apply
 ```
 
-• Confirm with “yes”.
+• Confirm with **yes**.
 
-Once all the resources have been provisioned, you can go to the Toolchain service in IBM Cloud console and in deployed region, you would find the delivery pipeline, there would be three stages, and in third deployment stage, you would find the URL for your NodeJS application deployed over there. You can open that URL in browser and see your application running.
+Once all the resources have been provisioned, you can go to the Toolchain service in IBM Cloud console, and in deployed region you would find the delivery pipeline, there would be three stages, and in third deployment stage, you would find the URL for your NodeJS application deployed over there. You can open that URL in browser and see your application running.
 
 •	To destroy the deployment run below terraform command.
 
